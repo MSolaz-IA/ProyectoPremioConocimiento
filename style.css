@@ -148,3 +148,35 @@ body {
     background-color: #800000;
     color: white;
 }
+
+
+/* Estilos del Botón Flotante */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;  /* Un poco más grande para que se vea bien el logo */
+    height: 80px;
+    background-color: #ffffff;
+    border: 4px solid #800000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow: hidden; /* Importante para recortar la imagen en círculo */
+    transition: transform 0.3s ease;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Ajuste de la imagen dentro del botón */
+.floating-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo el círculo */
+}
