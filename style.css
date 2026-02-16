@@ -1,0 +1,150 @@
+/* Configuración General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Header */
+.main-header {
+    padding: 10px 5% 0 5%;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.school-name h1 {
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+}
+
+.school-name p {
+    font-size: 12px;
+    color: #666;
+}
+
+.header-right {
+    text-align: right;
+}
+
+.conselleria {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.search-box {
+    display: inline-flex;
+    border: 1px solid #ccc;
+    margin-right: 15px;
+}
+
+.search-box input {
+    border: none;
+    padding: 5px;
+    outline: none;
+}
+
+.search-box button {
+    background: white;
+    border: none;
+    border-left: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.lang-selector {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.login {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* Navegación */
+.main-nav {
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-nav li {
+    padding: 15px 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.main-nav li:hover {
+    background-color: #e0e0e0;
+}
+
+.main-nav li.active {
+    background-color: #ddd;
+}
+
+/* Hero Image */
+.hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.hero img {
+    max-width: 90%;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Botones Inferiores */
+.content-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 50px;
+}
+
+.action-button {
+    width: 60%;
+    padding: 12px;
+    border: 2px solid #800000; /* Color granate */
+    color: #800000;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.action-button:hover {
+    background-color: #800000;
+    color: white;
+}
