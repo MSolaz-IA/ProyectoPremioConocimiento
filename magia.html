@@ -60,7 +60,7 @@
             document.getElementById("chat-section").style.display = "flex";
         }
 
-       function sendMessage() {
+      function sendMessage() {
             const inputField = document.getElementById("userInput");
             const log = document.getElementById("chat-log");
             
@@ -71,16 +71,16 @@
             log.innerHTML += `<div class="msg user">${text}</div>`;
             inputField.value = ""; 
             
-            // 2. CONGELAR LOS ANTERIORES
-            // Buscamos cualquier punto que todavía se esté moviendo y lo paramos
+            // 2. CONGELAR LOS INDICADORES ANTERIORES (Por si escribes muy rápido)
             const oldIndicators = document.querySelectorAll('.typing-indicator');
             oldIndicators.forEach(indicador => {
                 indicador.classList.add('paused');
             });
 
-            // 3. AÑADIR EL NUEVO (Este se moverá 4.2 segundos y parará solo)
+            // 3. AÑADIR EL NUEVO INDICADOR (Le ponemos una ID para poder borrarlo luego)
+            const loadingId = "loading-" + Date.now();
             const loadingHTML = `
-                <div class="typing-indicator">
+                <div id="${loadingId}" class="typing-indicator">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -88,6 +88,34 @@
             
             log.innerHTML += loadingHTML;
             log.scrollTop = log.scrollHeight;
+
+            // 4. RESPUESTA DEL BOT DESPUÉS DE 4.2 SEGUNDOS
+            setTimeout(() => {
+                // Borramos los puntos suspensivos
+                const currentLoader = document.getElementById(loadingId);
+                if (currentLoader) {
+                    currentLoader.remove();
+                }
+
+                // El nuevo mensaje empoderador formateado
+                const botReply = `¡Me encanta que te interese la informática! 💻✨<br><br>
+                En el IES Abastos no solo estudiarías tecnología, formarías parte de un entorno innovador donde trabajamos con proyectos reales de IA, desarrollo web y sistemas, en colaboración con empresas del sector.<br><br>
+                Cada vez más chicas están apostando por ciclos como DAM, DAW o ASIR, y en nuestro centro impulsamos iniciativas como 8IA y MAG-IA para visibilizar el talento femenino y romper estereotipos.<br><br>
+                Además:<br>
+                • Trabajarías con metodologías prácticas y retos reales.<br>
+                • Tendrías Formación en Empresa en compañías tecnológicas.<br>
+                • Desarrollarías competencias en programación, IA y ciberseguridad.<br>
+                • Contarías con acompañamiento y orientación personalizada.<br><br>
+                La informática no es “para chicos” o “para chicas”. Es para personas curiosas, creativas y con ganas de resolver problemas.<br><br>
+                Si te gusta la tecnología, en Abastos tienes tu sitio.<br><br>
+                En Abastos puedes ver los proyectos reales de nuestras alumnas en nuestros vídeos y redes del centro.<br><br>
+                Aquí la tecnología tiene nombre y tiene rostro. Y muchas veces, es femenino. 💜`;
+
+                // Añadimos el mensaje al chat
+                log.innerHTML += `<div class="msg bot">${botReply}</div>`;
+                log.scrollTop = log.scrollHeight;
+                
+            }, 4200); // 4200 milisegundos = 4.2 segundos
         }
     </script>
 </body>
